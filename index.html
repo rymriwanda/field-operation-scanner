@@ -1,15 +1,20 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
 
   <meta charset="UTF-8">
 
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
 
-  <title>Field Operation Scanner</title>
+  <title>Field Operation Collection</title>
 
+
+  <!-- HTML5 QR CODE / BARCODE SCANNER -->
   <script
     src="https://unpkg.com/html5-qrcode"
     type="text/javascript">
@@ -18,84 +23,218 @@
 
   <style>
 
+    * {
+      box-sizing: border-box;
+    }
+
+
     body {
+
       font-family: Arial, sans-serif;
+
       background: #f5f6f8;
+
       margin: 0;
+
       padding: 20px;
+
     }
 
 
     .container {
-      max-width: 500px;
+
+      max-width: 520px;
+
       margin: auto;
+
       background: white;
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+
+      padding: 22px;
+
+      border-radius: 18px;
+
+      box-shadow:
+        0 2px 12px rgba(0,0,0,0.08);
+
     }
 
 
     h2 {
+
       margin-top: 0;
+
+      margin-bottom: 25px;
+
+      font-size: 28px;
+
     }
 
 
     label {
+
       display: block;
+
       font-weight: bold;
-      margin-top: 20px;
-      margin-bottom: 8px;
+
+      margin-top: 18px;
+
+      margin-bottom: 7px;
+
     }
 
 
-    input {
+    input,
+    select {
+
       width: 100%;
-      box-sizing: border-box;
-      padding: 12px;
+
+      padding: 13px;
+
       border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 18px;
+
+      border-radius: 9px;
+
+      font-size: 17px;
+
+      background: white;
+
+    }
+
+
+    input[readonly] {
+
+      background: #f7f7f7;
+
     }
 
 
     button {
+
       width: 100%;
+
       padding: 14px;
+
       margin-top: 10px;
+
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
+
+      border-radius: 9px;
+
+      font-size: 17px;
+
       font-weight: bold;
+
       background: #222;
+
       color: white;
+
+      cursor: pointer;
+
+    }
+
+
+    button:active {
+
+      transform: scale(0.98);
+
+    }
+
+
+    .scan-button {
+
+      background: #222;
+
+    }
+
+
+    .submit-button {
+
+      margin-top: 25px;
+
+      background: #0b7a3e;
+
+      font-size: 18px;
+
+    }
+
+
+    .cancel-button {
+
+      background: #777;
+
     }
 
 
     #reader {
+
       width: 100%;
+
       margin-top: 15px;
+
       display: none;
+
+      overflow: hidden;
+
+      border-radius: 10px;
+
     }
 
 
     .status {
-      margin-top: 15px;
-      padding: 12px;
-      border-radius: 8px;
+
+      margin-top: 18px;
+
+      padding: 13px;
+
+      border-radius: 9px;
+
       display: none;
+
+      font-size: 16px;
+
     }
 
 
     .success {
+
       background: #e8f5e9;
+
       color: #2e7d32;
+
     }
 
 
     .error {
+
       background: #ffebee;
+
       color: #c62828;
+
+    }
+
+
+    .info {
+
+      background: #e3f2fd;
+
+      color: #1565c0;
+
+    }
+
+
+    .required {
+
+      color: #d32f2f;
+
+    }
+
+
+    .scanner-title {
+
+      margin-top: 15px;
+
+      font-weight: bold;
+
     }
 
   </style>
@@ -105,35 +244,289 @@
 
 <body>
 
+
 <div class="container">
 
+
   <h2>
-    Field Operation Scanner
+    Field Operation Collection
   </h2>
 
 
+  <!-- ========================================= -->
+  <!-- SUPPLIER -->
+  <!-- ========================================= -->
+
   <label>
-    Device ID
+    Supplier Name
+    <span class="required">*</span>
   </label>
 
+  <select id="supplierName">
+
+    <option value="">
+      -- Select Supplier --
+    </option>
+
+    <option value="Alnia">
+      Alnia
+    </option>
+
+    <option value="Nora">
+      Nora
+    </option>
+
+    <option value="Staffinc">
+      Staffinc
+    </option>
+
+  </select>
+
+
+  <!-- ========================================= -->
+  <!-- COLLECTOR -->
+  <!-- ========================================= -->
+
+  <label>
+    Collector Name
+    <span class="required">*</span>
+  </label>
+
+  <select id="collectorName">
+
+    <option value="">
+      -- Select Collector --
+    </option>
+
+    <option value="Firda">
+      Firda
+    </option>
+
+    <option value="Sulis">
+      Sulis
+    </option>
+
+    <option value="Rio">
+      Rio
+    </option>
+
+  </select>
+
+
+  <!-- ========================================= -->
+  <!-- LOCATION -->
+  <!-- ========================================= -->
+
+  <label>
+    Location Site
+    <span class="required">*</span>
+  </label>
+
+  <select id="locationSite">
+
+    <option value="">
+      -- Select Site --
+    </option>
+
+    <option value="Semarang">
+      Semarang
+    </option>
+
+    <option value="Surabaya">
+      Surabaya
+    </option>
+
+    <option value="Surakarta">
+      Surakarta
+    </option>
+
+    <option value="Sukoharjo">
+      Sukoharjo
+    </option>
+
+    <option value="Jakarta">
+      Jakarta
+    </option>
+
+    <option value="Bandung">
+      Bandung
+    </option>
+
+  </select>
+
+
+  <!-- ========================================= -->
+  <!-- DEVICE ID -->
+  <!-- ========================================= -->
+
+  <label>
+    Device ID
+    <span class="required">*</span>
+  </label>
 
   <input
     id="deviceId"
     type="text"
     placeholder="Scan Device ID"
-    readonly>
+    readonly
+  >
 
 
   <button
-    onclick="startScanner()">
-
+    class="scan-button"
+    onclick="startDeviceScanner()"
+  >
     📷 Scan Device ID
-
   </button>
 
 
+  <!-- ========================================= -->
+  <!-- STORAGE ID -->
+  <!-- ========================================= -->
+
+  <label>
+    Storage ID
+    <span class="required">*</span>
+  </label>
+
+  <input
+    id="storageId"
+    type="text"
+    placeholder="Scan SD Card / USB ID"
+    readonly
+  >
+
+
+  <button
+    class="scan-button"
+    onclick="startStorageScanner()"
+  >
+    📷 Scan Storage ID
+  </button>
+
+
+  <!-- ========================================= -->
+  <!-- SCANNER -->
+  <!-- ========================================= -->
+
   <div id="reader"></div>
 
+
+  <!-- ========================================= -->
+  <!-- SCENE CATEGORY -->
+  <!-- ========================================= -->
+
+  <label>
+    Scene Category
+    <span class="required">*</span>
+  </label>
+
+  <select id="sceneCategory">
+
+    <option value="">
+      -- Select Scene Category --
+    </option>
+
+    <option value="Factory">
+      Factory
+    </option>
+
+    <option value="Service">
+      Service
+    </option>
+
+    <option value="Retail">
+      Retail
+    </option>
+
+    <option value="Garment">
+      Garment
+    </option>
+
+  </select>
+
+
+  <!-- ========================================= -->
+  <!-- HOME SCENE -->
+  <!-- ========================================= -->
+
+  <label>
+    Home Scene
+    <span class="required">*</span>
+  </label>
+
+  <select id="homeScene">
+
+    <option value="">
+      -- Select Home Scene --
+    </option>
+
+    <option value="I">
+      I
+    </option>
+
+    <option value="J">
+      J
+    </option>
+
+    <option value="K">
+      K
+    </option>
+
+    <option value="L">
+      L
+    </option>
+
+    <option value="M">
+      M
+    </option>
+
+    <option value="N">
+      N
+    </option>
+
+    <option value="O">
+      O
+    </option>
+
+    <option value="P">
+      P
+    </option>
+
+    <option value="Q">
+      Q
+    </option>
+
+    <option value="R">
+      R
+    </option>
+
+    <option value="S">
+      S
+    </option>
+
+    <option value="T">
+      T
+    </option>
+
+  </select>
+
+
+  <!-- ========================================= -->
+  <!-- SUBMIT -->
+  <!-- ========================================= -->
+
+  <button
+    class="submit-button"
+    onclick="submitCollection()"
+  >
+    ✅ Submit Collection
+  </button>
+
+
+  <!-- ========================================= -->
+  <!-- STATUS -->
+  <!-- ========================================= -->
 
   <div
     id="status"
@@ -147,86 +540,182 @@
 <script>
 
 
-/*
- * ==========================================
- * GOOGLE APPS SCRIPT URL
- * ==========================================
- */
+/************************************************
+ * GOOGLE APPS SCRIPT WEB APP URL
+ ************************************************/
 
 const APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbxQPA54bQh-6Qx49bLqI1cu7aPuLMrBS4_RQ4dlAG0rsgyhcSXKAoSFGP4VW1A6ouGQZw/exec";
+"https://script.google.com/macros/s/AKfycbxQPA54bQh-6Qx49bLqI1cu7aPuLMrBS4_RQ4dlAG0rsgyhcSXKAoSFGP4VW1A6ouGQZw/exec";
 
+
+/************************************************
+ * GLOBAL SCANNER
+ ************************************************/
 
 let scanner = null;
 
+let scannerTarget = null;
 
-/*
- * ==========================================
- * START SCANNER
- * ==========================================
- */
+
+/************************************************
+ * START DEVICE SCANNER
+ ************************************************/
+
+function startDeviceScanner() {
+
+  scannerTarget = "device";
+
+  startScanner();
+
+}
+
+
+/************************************************
+ * START STORAGE SCANNER
+ ************************************************/
+
+function startStorageScanner() {
+
+  scannerTarget = "storage";
+
+  startScanner();
+
+}
+
+
+/************************************************
+ * START BARCODE SCANNER
+ ************************************************/
 
 function startScanner() {
 
-  document.getElementById(
-    "reader"
-  ).style.display = "block";
+  const reader =
+    document.getElementById("reader");
+
+  reader.style.display = "block";
+
+
+  // Prevent multiple scanners
+  if (scanner) {
+
+    stopScanner();
+
+  }
 
 
   scanner =
     new Html5Qrcode("reader");
 
 
+  const config = {
+
+    fps: 15,
+
+    qrbox: {
+      width: 300,
+      height: 160
+    },
+
+    aspectRatio: 1.777,
+
+    formatsToSupport: [
+
+      Html5QrcodeSupportedFormats.CODE_128
+
+    ],
+
+    rememberLastUsedCamera: true
+
+  };
+
+
   scanner.start(
 
     {
-      facingMode: "environment"
-    },
-
-    {
-      fps: 10,
-
-      qrbox: {
-        width: 250,
-        height: 150
+      facingMode: {
+        exact: "environment"
       }
-
     },
+
+    config,
+
 
     function(decodedText) {
 
       console.log(
-        "Scanned:",
+        "Barcode detected:",
         decodedText
       );
 
 
-      document.getElementById(
-        "deviceId"
-      ).value = decodedText;
+      /**************************************
+       * DEVICE
+       **************************************/
+
+      if (scannerTarget === "device") {
+
+        document.getElementById(
+          "deviceId"
+        ).value = decodedText;
+
+        showStatus(
+          "✅ Device ID terbaca: " +
+          decodedText,
+          "success"
+        );
+
+      }
+
+
+      /**************************************
+       * STORAGE
+       **************************************/
+
+      if (scannerTarget === "storage") {
+
+        document.getElementById(
+          "storageId"
+        ).value = decodedText;
+
+        showStatus(
+          "✅ Storage ID terbaca: " +
+          decodedText,
+          "success"
+        );
+
+      }
 
 
       stopScanner();
 
-
-      sendDeviceToGoogleSheet(
-        decodedText
-      );
-
     },
+
 
     function(errorMessage) {
 
-      // Ignore scanning errors
+      // Ignore scan errors
+      // This runs continuously while camera
+      // is looking for barcode.
 
     }
 
-  ).catch(function(error) {
+  )
+
+  .catch(function(error) {
+
+    console.error(
+      "Camera error:",
+      error
+    );
+
 
     showStatus(
-      "Camera tidak bisa dibuka: " +
+
+      "❌ Camera tidak bisa dibuka.<br>" +
       error,
+
       "error"
+
     );
 
   });
@@ -234,21 +723,21 @@ function startScanner() {
 }
 
 
-/*
- * ==========================================
+/************************************************
  * STOP SCANNER
- * ==========================================
- */
+ ************************************************/
 
 function stopScanner() {
 
   if (!scanner) {
+
     return;
+
   }
 
 
-  scanner
-    .stop()
+  scanner.stop()
+
     .then(function() {
 
       scanner.clear();
@@ -260,54 +749,210 @@ function stopScanner() {
       ).style.display = "none";
 
     })
+
     .catch(function(error) {
 
-      console.log(error);
+      console.log(
+        "Stop scanner error:",
+        error
+      );
+
+      scanner = null;
 
     });
 
 }
 
 
-/*
- * ==========================================
- * SEND DEVICE TO GOOGLE SHEET
- * ==========================================
- */
+/************************************************
+ * SUBMIT COLLECTION
+ ************************************************/
 
-function sendDeviceToGoogleSheet(
-  deviceId
-) {
+function submitCollection() {
 
-  showStatus(
-    "⏳ Sending " +
-    deviceId +
-    " to Google Sheet...",
-    "success"
-  );
 
+  /**********************************************
+   * GET VALUES
+   **********************************************/
+
+  const supplierName =
+    document.getElementById(
+      "supplierName"
+    ).value;
+
+
+  const collectorName =
+    document.getElementById(
+      "collectorName"
+    ).value;
+
+
+  const locationSite =
+    document.getElementById(
+      "locationSite"
+    ).value;
+
+
+  const deviceId =
+    document.getElementById(
+      "deviceId"
+    ).value;
+
+
+  const storageId =
+    document.getElementById(
+      "storageId"
+    ).value;
+
+
+  const sceneCategory =
+    document.getElementById(
+      "sceneCategory"
+    ).value;
+
+
+  const homeScene =
+    document.getElementById(
+      "homeScene"
+    ).value;
+
+
+  /**********************************************
+   * VALIDATION
+   **********************************************/
+
+  if (!supplierName) {
+
+    showStatus(
+      "❌ Supplier Name wajib dipilih.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if (!collectorName) {
+
+    showStatus(
+      "❌ Collector Name wajib dipilih.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if (!locationSite) {
+
+    showStatus(
+      "❌ Location Site wajib dipilih.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if (!deviceId) {
+
+    showStatus(
+      "❌ Device ID wajib di-scan.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if (!storageId) {
+
+    showStatus(
+      "❌ Storage ID wajib di-scan.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if (!sceneCategory) {
+
+    showStatus(
+      "❌ Scene Category wajib dipilih.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if (!homeScene) {
+
+    showStatus(
+      "❌ Home Scene wajib dipilih.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  /**********************************************
+   * PREPARE DATA
+   **********************************************/
 
   const data = {
 
-    supplierName: "",
+    supplierName:
+      supplierName,
 
-    collectorName: "",
+    collectorName:
+      collectorName,
 
-    locationSite: "",
+    locationSite:
+      locationSite,
 
-    deviceId: deviceId,
+    deviceId:
+      deviceId,
 
-    storageId: "",
+    storageId:
+      storageId,
 
-    sceneCategory: "",
+    sceneCategory:
+      sceneCategory,
 
-    homeScene: ""
+    homeScene:
+      homeScene
 
   };
 
 
+  /**********************************************
+   * SHOW LOADING
+   **********************************************/
+
+  showStatus(
+    "⏳ Menyimpan data...",
+    "info"
+  );
+
+
+  /**********************************************
+   * SEND TO GOOGLE APPS SCRIPT
+   **********************************************/
+
   fetch(
+
     APPS_SCRIPT_URL,
+
     {
 
       method: "POST",
@@ -321,30 +966,75 @@ function sendDeviceToGoogleSheet(
 
       },
 
-      body: JSON.stringify(data)
+      body:
+        JSON.stringify(data)
 
     }
 
   )
+
   .then(function() {
+
+
+    /********************************************
+     * SUCCESS
+     ********************************************/
 
     showStatus(
 
-      "✅ Device " +
+      "✅ Collection berhasil dikirim.<br><br>" +
+
+      "Device ID: <b>" +
       deviceId +
-      " berhasil dikirim.",
+      "</b><br>" +
+
+      "Storage ID: <b>" +
+      storageId +
+      "</b>",
 
       "success"
 
     );
 
+
+    /********************************************
+     * RESET FORM
+     ********************************************/
+
+    document.getElementById(
+      "deviceId"
+    ).value = "";
+
+
+    document.getElementById(
+      "storageId"
+    ).value = "";
+
+
+    document.getElementById(
+      "sceneCategory"
+    ).value = "";
+
+
+    document.getElementById(
+      "homeScene"
+    ).value = "";
+
+
   })
 
   .catch(function(error) {
 
+
+    console.error(
+      "Submit error:",
+      error
+    );
+
+
     showStatus(
 
-      "❌ Gagal mengirim data: " +
+      "❌ Gagal mengirim data.<br>" +
       error,
 
       "error"
@@ -356,11 +1046,9 @@ function sendDeviceToGoogleSheet(
 }
 
 
-/*
- * ==========================================
- * STATUS MESSAGE
- * ==========================================
- */
+/************************************************
+ * SHOW STATUS
+ ************************************************/
 
 function showStatus(
   message,
@@ -386,7 +1074,9 @@ function showStatus(
 
 }
 
+
 </script>
+
 
 </body>
 
